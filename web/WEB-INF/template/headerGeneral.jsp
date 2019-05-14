@@ -6,7 +6,7 @@
 
 <div id="header">
     <h1 id="nomSite">Oh My Blog!</h1>
-    <a href="PageAccueil.jsp" id="accueil">Accueil</a>
+    <a href="accueil" id="accueil">Accueil</a>
     <a href="connection" id="connection">Connexion</a>
     <a href="inscription" id="inscription">Inscription</a>
     <nav id="menuHeader">
