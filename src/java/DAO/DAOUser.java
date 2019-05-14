@@ -126,18 +126,24 @@ public class DAOUser extends DAO<User> {
    public boolean findLog(String mail, String pwd){
         boolean log = false;
         // faut faire attention aux espaces qui doivent entouré le nom de la table
-        String sql = "SELECT * FROM " + table + " WHERE email=? AND password=?";
+        String sql = "SELECT * FROM " + table + " WHERE email=?";
+        
          try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             // permet de trouver dans la base de données tous les lignes ayant l'id
                  pstmt.setString(1, mail);
-                 pstmt.setString(2,pwd);
              // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
                  ResultSet rs = pstmt.executeQuery();
-                 rs.first();
-            // recupere le deuxieme parametre de rs est si il est egal à mail va retourner true
-            // donc l'utilisateur existe deja
-            log = (mail.equals(rs.getString(2))) && (pwd.equals(encryptThisString(rs.getString(3))));
+                 if(rs.first())
+                 {
+                      // recupere le deuxieme parametre de rs est si il est egal à mail va retourner true
+                     // donc l'utilisateur existe deja
+
+                      System.out.println("pwd "+encryptThisString(pwd));
+                     log = ((mail.equals(rs.getString("email"))) && (encryptThisString(pwd).equalsIgnoreCase(rs.getString("password"))));
+                      System.out.println("rs " +rs.getString("password"));
+                 }
+          
         } catch (SQLException ex) {
             Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
         }
