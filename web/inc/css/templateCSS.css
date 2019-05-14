@@ -1,0 +1,135 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14 mai 2019, 15:11:05
+    Author     : stagldnr
+*/
+@font-face{
+    src:url(../font/calendas_plus_webfont.ttf);
+    font-family: p1;
+}
+
+body{
+    background-image: url(../img/voyager.jpg);
+    background-attachment: fixed;
+}
+
+#accueil{
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    top: 0px;
+    text-decoration:none;
+    text-align: center;
+    font-size: 55px;
+    color: black;
+    background-color: rgba(255,255,255,0.5);
+    width: 16%;
+    display: inline-block;
+    border: 1px solid black;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 0 0 20px black;
+}
+
+#connection{
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    top: 0;
+    text-decoration:none;
+    text-align: center;
+    font-size: 20px;
+    color: black;
+    background-color: rgba(255,255,255,0.5);
+    width: 16%;
+    margin: 0;
+    display: inline-block;
+    border: 1px solid black;
+    padding: 10px 0 10px 0;
+    box-shadow: 0 0 20px black;
+}
+
+#inscription{
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    top: 50px;
+    text-decoration:none;
+    text-align: center;
+    font-size: 20px;
+    color: black;
+    background-color: rgba(255,255,255,0.5);
+    width: 16%;
+    margin: 0;
+    display: inline-block;
+    border: 1px solid black;
+    padding:10px 0 10px 0;
+    box-shadow: 0 0 20px black;
+}
+
+#nomSite{
+    position: fixed;
+    text-align: left;
+    top: 0;
+    left: 20%;
+    font-family: p1;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 80px;
+}
+
+#menuHeader{
+    position:fixed;
+    top:15.3%;
+    background-color: rgba(0,0,0,0.5);
+    border: 1px solid black;
+    width: 100%;
+}
+
+#galerie{
+    text-decoration:none;
+    text-align: center;
+    font-size: 20px;
+    color: black;
+    background-color: rgba(255,255,255,0.6);
+    width: 32.95%;
+    margin: 0;
+    display: inline-block;
+    padding:10px 0 10px 0;
+}
+
+#destination{
+    text-decoration:none;
+    text-align: center;
+    font-size: 20px;
+    color: black;
+    background-color: rgba(255,255,255,0.6);
+    width: 32.95%;
+    margin: 0;
+    display: inline-block;
+    padding:10px 0 10px 0;
+}
+
+#cuisine{
+    text-decoration:none;
+    text-align: center;
+    font-size: 20px;
+    color: black;
+    background-color: rgba(255,255,255,0.6);
+    width: 32.95%;
+    margin: 0;
+    display: inline-block;
+    padding:10px 0 10px 0;
+}
+
+#divMenu{
+    margin-left: 16%;
+    top:17%;
+    width: 68%;
+    border: 1px solid black;
+}
+
