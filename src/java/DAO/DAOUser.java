@@ -7,6 +7,9 @@
 package DAO;
 
 import beans.User;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -71,7 +74,7 @@ public class DAOUser extends DAO<User> {
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, obj.getEmail());
-            pstmt.setString(2, obj.getPassword());
+            pstmt.setString(2, encryptThisString(obj.getPassword()));
             pstmt.setString(3, obj.getName());
             pstmt.setInt(4,creation);
             pstmt.setInt(5, nonAdmin);
@@ -104,7 +107,7 @@ public class DAOUser extends DAO<User> {
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, obj.getEmail());
-            pstmt.setString(2, obj.getPassword());
+            pstmt.setString(2, encryptThisString(obj.getPassword()));
             pstmt.setString(3, obj.getName());
             pstmt.setInt(4, obj.getEtat());
            
@@ -134,7 +137,7 @@ public class DAOUser extends DAO<User> {
                  rs.first();
             // recupere le deuxieme parametre de rs est si il est egal à mail va retourner true
             // donc l'utilisateur existe deja
-            log = (mail.equals(rs.getString(2))) && (pwd.equals(rs.getString(3)));
+            log = (mail.equals(rs.getString(2))) && (pwd.equals(encryptThisString(rs.getString(3))));
         } catch (SQLException ex) {
             Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -197,6 +200,28 @@ public class DAOUser extends DAO<User> {
     }
     
     
-
+  public static String encryptThisString(String input) {
+        try {
+            // getInstance() method is called with algorithm SHA-1
+            MessageDigest md = MessageDigest.getInstance("SHA-1");
+            // digest() method is called
+            // to calculate message digest of the input string
+            // returned as array of byte
+            byte[] messageDigest = md.digest(input.getBytes());
+            // Convert byte array into signum representation
+            BigInteger no = new BigInteger(1, messageDigest);
+            // Convert message digest into hex value
+            String hashtext = no.toString(16);
+            // Add preceding 0s to make it 32 bit
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            // return the HashText
+            return hashtext;
+        } // For specifying wrong message digest algorithms
+        catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
  
 }

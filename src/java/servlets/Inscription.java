@@ -18,7 +18,7 @@ public class Inscription extends HttpServlet {
     /* Des constantes */
     private static final String ATT_FORM = "form";
     private static final String ATT_USER = "user";
-    public static final String VIEW = "/WEB-INF/inscription.jsp";
+    public static final String VIEW = "/WEB-INF/view/inscription.jsp";
     
     
     /**

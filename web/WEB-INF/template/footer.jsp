@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <footer>
-        <p>Coucou</p>
+        
                     <%-- Vérification de la présence d'un objet utilisateur en session --%>
              <c:choose>
              <c:when test="${!empty sessionScope.sessionUtilisateur}"><p

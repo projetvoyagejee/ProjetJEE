@@ -38,6 +38,6 @@
                 <p class="${(empty form.errors) ? 'success' : 'error'}">${form.result}</p>
             </fieldset>
         </form>
-            <c:import url="footer.jsp"/>
+            <c:import url="/WEB-INF/template/footer.jsp"/>
     </body>
 </html>
