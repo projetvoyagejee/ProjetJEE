@@ -7,53 +7,9 @@ and open the template in the editor.
     Created on : 13 mai 2019, 14:23:01
     Author     : stagldnr
 */
-body{
-    background-image: url(../img/voyager.jpg);
-}
-
-#accueil{
-    text-decoration:none;
-    text-align: center;
-    color: lightgreen;
-    background-color: rgba(255,255,255,0.9);
-    width: 32.8%;
-    margin: 0;
-    display: inline-block;
-    border: 1px solid black;
-    padding: 10px 0 10px 0;
-}
-
-#connection{
-    text-decoration:none;
-    text-align: center;
-    color: lightgreen;
-    background-color: rgba(255,255,255,0.9);
-    width: 32.8%;
-    margin: 0;
-    display: inline-block;
-    border: 1px solid black;
-    padding: 10px 0 10px 0; 
-}
-
-#inscription{
-    text-decoration:none;
-    text-align: center;
-    color: lightgreen;
-    background-color: rgba(255,255,255,0.9);
-    width: 32.8%;
-    margin: 0;
-    display: inline-block;
-    border: 1px solid black;
-    padding:10px 0 10px 0;
-}
-#nomSite{
-    text-align: center;
-}
-#titreAccueil{
-
-}
-
-#div{
-    width: 100%;
-    background-color: rgba(255,255,255,0.75);
+#div{ 
+    margin-top: 11.6%;
+    width: 84%;
+    background-color: rgba(255,255,255,0.6);
+    box-shadow: 0 0 20px black;
 }
