@@ -33,6 +33,7 @@ public class DAOUser extends DAO<User> {
   private final int desinscrire = 1;
   // Quand l'etat est egal à 2 l'utilisateur est supprimé et c'est commentaire sont remplacé par un text prédefini
   private final int supprime = 2;
+  
   private final String table = "utilisateur";
  
   @Override

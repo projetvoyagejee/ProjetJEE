@@ -7,7 +7,13 @@
 package DAO;
 
 import beans.Article;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,17 +25,83 @@ public class DAOArticle extends DAO<Article>{
      
     @Override
     public Article find(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           Article retObj = null;
+        // faut faire attention aux espaces qui doivent entouré le nom de la table
+        String sql = "SELECT * FROM " + table + " WHERE id_Articles=?";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            // permet de trouver dans la base de données tous les lignes ayant l'id
+            pstmt.setInt(1, id);
+            // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
+            ResultSet rs = pstmt.executeQuery();
+               
+            if (rs.first()) {
+                retObj = new Article(id,
+                        rs.getString("title"),
+                        rs.getString("body"),
+                        rs.getString("img"),
+                       rs.getString("date"),
+                        rs.getString("dateMAJ"),
+                        rs.getInt("up"),
+                        rs.getInt("down")
+                        
+                        
+                );
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retObj;
     }
 
     @Override
     public Article create(Article obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         
+       Article rtObj = null;
+        String sql = "INSERT INTO " + table + " (title, body, date)" + " VALUES (?, ?, ?)";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            pstmt.setString(1, obj.getTitle());
+            pstmt.setString(2, obj.getBody());
+            pstmt.setString(3, obj.getDate());
+            pstmt.executeUpdate();
+            ResultSet generatedKeys = pstmt.getGeneratedKeys();
+            if (generatedKeys.first()) {
+                rtObj = this.find(generatedKeys.getInt(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      return rtObj;
     }
 
     @Override
     public void delete(Article obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//             User rtObj = null;
+//        String sql = "UPDATE " + table + " SET "
+//                + "email = ?,"
+//                + "password = ?,"
+//                + "username = ?"
+//                +"etat = ?"
+//                +"admin=?"
+//                + " WHERE id_utilisateur = ?";
+//        try {
+//            PreparedStatement pstmt = connection.prepareStatement(sql);
+//            pstmt.setString(1, obj.getEmail());
+//            pstmt.setString(2, encryptThisString(obj.getPassword()));
+//            pstmt.setString(3, obj.getName());
+//            pstmt.setInt(4, obj.getEtat());
+//           
+//            pstmt.setInt(5,obj.isAdmin());
+//             pstmt.setInt(6, obj.getId_User());
+//            pstmt.executeUpdate();
+//            //réhydrate l'objet a partir de ces nouvelles données
+//            rtObj = find(obj.getId_User());
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return rtObj;
     }
 
     @Override

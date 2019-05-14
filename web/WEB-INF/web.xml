@@ -24,7 +24,18 @@
         <servlet-name>deconnection</servlet-name>
         <url-pattern>/deconnection</url-pattern>
     </servlet-mapping>
-
+    
+     <!-- mapping creation d'un post -->
+    <servlet>
+        <servlet-name>creationPost</servlet-name>
+        <servlet-class>servlets.creationPost</servlet-class>
+    </servlet>
+        
+    <servlet-mapping>
+        <servlet-name>creationPost</servlet-name>
+        <url-pattern>/creationPost</url-pattern>
+    </servlet-mapping>
+        
     <!-- Configuration du temps de session avant déconnexion -->
     <session-config>
         <session-timeout>

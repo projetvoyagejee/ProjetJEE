@@ -11,62 +11,94 @@ package beans;
  * @author Julien Modena
  */
 public class Article {
-    private int id_article;
-    private String nom;
-    private String categorie;
-    private int score;
-    private String contenu;
+    private int id_Articles;
+    private String title;
+    private String body;
+    private String img;
+    private String date;
+    private String dateMAJ;
+    private int up;
+    private int down;
 
-    public int getId_article() {
-        return id_article;
+    public int getId_Articles() {
+        return id_Articles;
     }
 
-    public void setId_article(int id_article) {
-        this.id_article = id_article;
+    public void setId_Articles(int id_Articles) {
+        this.id_Articles = id_Articles;
     }
 
-    public String getNom() {
-        return nom;
+    public String getTitle() {
+        return title;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getCategorie() {
-        return categorie;
+    public String getBody() {
+        return body;
     }
 
-    public void setCategorie(String categorie) {
-        this.categorie = categorie;
+    public void setBody(String body) {
+        this.body = body;
     }
 
-    public int getScore() {
-        return score;
+    public String getImg() {
+        return img;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setImg(String img) {
+        this.img = img;
     }
 
-    public String getContenu() {
-        return contenu;
+    public String getDate() {
+        return date;
     }
 
-    public void setContenu(String contenu) {
-        this.contenu = contenu;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDateMAJ() {
+        return dateMAJ;
+    }
+
+    public void setDateMAJ(String dateMAJ) {
+        this.dateMAJ = dateMAJ;
+    }
+
+    public int getUp() {
+        return up;
+    }
+
+    public void setUp(int up) {
+        this.up = up;
+    }
+
+    public int getDown() {
+        return down;
+    }
+
+    public void setDown(int down) {
+        this.down = down;
     }
 
     public Article() {
     }
 
-    public Article(int id_article, String nom, String categorie, int score, String contenu) {
-        this.id_article = id_article;
-        this.nom = nom;
-        this.categorie = categorie;
-        this.score = score;
-        this.contenu = contenu;
+    public Article(int id_Articles, String title, String body, String img, String date, String dateMAJ, int up, int down) {
+        this.id_Articles = id_Articles;
+        this.title = title;
+        this.body = body;
+        this.img = img;
+        this.date = date;
+        this.dateMAJ = dateMAJ;
+        this.up = up;
+        this.down = down;
     }
     
+    
+
     
 }
