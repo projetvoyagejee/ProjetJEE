@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 public class DAOArticle extends DAO<Article>{
 
      private final String table = "Articles";
-     
+     DAOCategorie daocategorie = new DAOCategorie();
     @Override
     public Article find(Integer id) {
            Article retObj = null;
@@ -42,8 +42,8 @@ public class DAOArticle extends DAO<Article>{
                         rs.getString("img"),
                        rs.getString("date"),
                         rs.getInt("up"),
-                        rs.getInt("down"),
-                        rs.getInt("id_categorie")
+                        rs.getInt("down")
+                
                         
                         
                         
@@ -59,8 +59,8 @@ public class DAOArticle extends DAO<Article>{
     public Article create(Article obj) {
          
        Article rtObj = null;
-        String sql = "INSERT INTO " + table + " (title, body,img, date,up,down,id_categorie)" 
-                + " VALUES (?, ?, ?,?,?,?,?)";
+        String sql = "INSERT INTO " + table + " (title, body,img, date,up,down)" 
+                + " VALUES (?, ?, ?,?,?,?)";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, obj.getTitle());
@@ -69,7 +69,7 @@ public class DAOArticle extends DAO<Article>{
             pstmt.setString(4, obj.getDate());
              pstmt.setInt(5, 0);
               pstmt.setInt(6, 0);
-               pstmt.setInt(7, 0);
+             
             pstmt.executeUpdate();
             ResultSet generatedKeys = pstmt.getGeneratedKeys();
             if (generatedKeys.first()) {
@@ -125,35 +125,5 @@ public class DAOArticle extends DAO<Article>{
 // FROM CLIENT C,T_REF_VILLE V
 // WHERE C.id_ville = V.id_ville
     
-    public Article findWithCategorie(Integer id) {
-           Article retObj = null;
-        // faut faire attention aux espaces qui doivent entouré le nom de la table
-        String sql = "SELECT * FROM " + table +"A ,Categorie C"
-                + " WHERE id_Articles=? and A.id_categorie = C.id_categorie ";
-        try {
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            // permet de trouver dans la base de données tous les lignes ayant l'id
-            pstmt.setInt(1, id);
-            // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
-            ResultSet rs = pstmt.executeQuery();
-               
-            if (rs.first()) {
-                retObj = new Article(id,
-                        rs.getString("title"),
-                        rs.getString("body"),
-                        rs.getString("img"),
-                       rs.getString("date"),
-                        rs.getInt("up"),
-                        rs.getInt("down"),
-                        rs.getInt("id_categorie")
-                        
-                        
-                        
-                );
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return retObj;
-    }
+
 }

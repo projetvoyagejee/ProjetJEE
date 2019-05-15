@@ -6,6 +6,8 @@
 
 package beans;
 
+
+
 /**
  *
  * @author Julien Modena
@@ -19,18 +21,9 @@ public class Article {
     private String date;
     private int up;
     private int down;
-    private int id_categorie;
+   
 
-    public int getId_categorie() {
-        return id_categorie;
-    }
-
-    public void setId_categorie(int id_categorie) {
-        this.id_categorie = id_categorie;
-    }
-    
-    
-
+  
     public int getId_Articles() {
         return id_Articles;
     }
@@ -87,7 +80,11 @@ public class Article {
         this.down = down;
     }
 
-    public Article(int id_Articles, String title, String body, String img, String date, int up, int down, int id_categorie) {
+    public Article() {
+       
+    }
+
+    public Article(int id_Articles, String title, String body, String img, String date, int up, int down) {
         this.id_Articles = id_Articles;
         this.title = title;
         this.body = body;
@@ -95,11 +92,10 @@ public class Article {
         this.date = date;
         this.up = up;
         this.down = down;
-        this.id_categorie = id_categorie;
     }
 
-    public Article() {
-    }
+    
+    
 
   
     

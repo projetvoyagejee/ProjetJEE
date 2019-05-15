@@ -37,6 +37,11 @@ public class Categorie {
         this.id_categorie = id_categorie;
         this.categorie = categorie;
     }
+
+    @Override
+    public String toString() {
+        return "Categorie{" + "id_categorie=" + id_categorie + ", categorie=" + categorie + '}';
+    }
     
    
 
