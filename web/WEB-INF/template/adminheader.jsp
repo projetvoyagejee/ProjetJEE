@@ -15,7 +15,7 @@
     <nav id="menuHeader">
         <div id="divMenu">
              <a href="creationPost">Creer un Post</a>
-             <a href="ListePost">Liste des Posts</a>
+             <a href="listPost">Liste des Posts</a>
              <a href="listeBestPost">Top 3</a>
              <a href="listecom">Liste commentaire signalés</a>
              <a href="listeinscrit">Liste des inscrits</a>

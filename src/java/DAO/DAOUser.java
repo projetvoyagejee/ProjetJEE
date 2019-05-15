@@ -152,6 +152,35 @@ public class DAOUser extends DAO<User> {
          System.out.println(log);
         return log;
    }
+   
+   public User retrouverUser(String mail){
+       User retObj = null;
+        // faut faire attention aux espaces qui doivent entouré le nom de la table
+        String sql = "SELECT * FROM " + table + " WHERE email=?";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            // permet de trouver dans la base de données tous les lignes ayant l'id
+            pstmt.setString(1, mail);
+            // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
+            ResultSet rs = pstmt.executeQuery();
+               
+            if (rs.first()) {
+                retObj = new User(rs.getInt("id_utilisateur"),
+                        mail,
+                        rs.getString("password"),
+                        rs.getString("username"),
+                       
+                        rs.getInt("admin"),
+                         rs.getInt("etat")
+                        
+                        
+                );
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retObj;
+   }
   
     public boolean findEmail(String mail){
         

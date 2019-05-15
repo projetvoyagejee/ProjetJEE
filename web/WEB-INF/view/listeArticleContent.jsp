@@ -14,7 +14,7 @@
         <link type="text/css" rel="stylesheet" href="inc/form.css" />
     </head>
     <body>
-        <div>
+        <table action="listPost">
         <%--action faut que tu regarde le web.xml et faire tous le mapping avec les servlets,etc--%>
         
          
@@ -27,7 +27,7 @@
                 
             }%>
         
-        </div>
+        </table>
                <c:import url="/WEB-INF/template/footer.jsp"/>
     </body>
 </html>

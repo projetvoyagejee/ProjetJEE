@@ -5,8 +5,8 @@
 --%>
 
 
-<jsp:include page="/WEB-INF/template/templateAdmin.jsp">
-    <jsp:param name="title" value="admin" />
+    <jsp:include page="/WEB-INF/template/templateAdmin.jsp">
+    <jsp:param name="title" value="listPost" />
      <jsp:param name="content" value="ListeArticleContent" />
    
 </jsp:include>

@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 public class ListPostForm {
      DAOArticle daoarticle = new DAOArticle();
 
-   
-
+     Article test = daoarticle.find(1);
+    
     /**
      * Méthode de validation du poste est de creation de celui-ci
      *

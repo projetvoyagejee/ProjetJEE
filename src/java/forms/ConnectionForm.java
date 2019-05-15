@@ -45,7 +45,7 @@ public class ConnectionForm {
         String email = getParamValue(request, EMAIL);
         String pwd = getParamValue(request, PASSWORD);
          
-        
+        User Utilisateur =new User();
         User user = new User();
         /* Validation du champ email. */
         try {
@@ -66,14 +66,18 @@ public class ConnectionForm {
         }catch (Exception e){
             setError(EMAIL,e.getMessage());
         }
+        
         user.setPassword(pwd);
+      
         /* Initialisation du résultat global de la validation. */
         if (errors.isEmpty()) {
+           Utilisateur = daouse.retrouverUser(email);
             result = "Succès de la connexion.";
         } else {
             result += "Échec de la connexion.";
         }
-        return user;
+        
+        return Utilisateur;
     }
 
     /**

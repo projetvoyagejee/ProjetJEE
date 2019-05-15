@@ -94,6 +94,11 @@ public class Article {
         this.down = down;
     }
 
+    @Override
+    public String toString() {
+        return "Article{" + "id_Articles=" + id_Articles + ", title=" + title + ", body=" + body + ", date=" + date + ", up=" + up + ", down=" + down + '}';
+    }
+
     
     
 
