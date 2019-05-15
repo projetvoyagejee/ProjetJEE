@@ -13,7 +13,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -21,27 +20,35 @@ import javax.servlet.http.HttpSession;
  */
 public class CreationPost  extends HttpServlet{
 
+     /* Des constantes */
+   
+    private static final String ATT_POST = "article";
+    public static final String VIEW = "/WEB-INF/view/creationPost.jsp";
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        /* Préparation de l'objet formulaire */
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          /* Préparation de l'objet formulaire */
         CreationPostForm postform = new CreationPostForm();
         /* Traitement de la requête et récupération du bean en résultant */
        Article post = postform.creationArticle(req);
-        /* Récupération de la session depuis la requête */
-        HttpSession session = req.getSession();
-        /*
-          * Si aucune erreur de validation n'a eu lieu, alors ajout du bean user
-         * à la session, sinon suppression du bean de la session.
-         */
-//        if (postform.getErrors().isEmpty()) {
-//            session.setAttribute(ATT_SESSION_USER, user);
-//        } else {
-//            session.setAttribute(ATT_SESSION_USER, null);
-//        }
-//        /* Stockage du formulaire et du bean dans l'objet request */
-//        request.setAttribute(ATT_FORM, form);
-//        request.setAttribute(ATT_USER, user);
-        
+       
+        /* Stockage du formulaire et du bean dans l'objet request */
+       
+        req.setAttribute(ATT_POST, post);
+        /* Transmission de la paire d'objets request/response à notre JSP */
+        this.getServletContext()
+                .getRequestDispatcher(VIEW)
+                .forward(req, resp);
+    }
+    
+    
+    
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+     
+        this.getServletContext()
+                .getRequestDispatcher(VIEW)
+                .forward(req, resp);
     }
 
         

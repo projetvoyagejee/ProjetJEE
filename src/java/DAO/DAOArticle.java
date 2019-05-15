@@ -41,9 +41,10 @@ public class DAOArticle extends DAO<Article>{
                         rs.getString("body"),
                         rs.getString("img"),
                        rs.getString("date"),
-                        rs.getString("dateMAJ"),
                         rs.getInt("up"),
-                        rs.getInt("down")
+                        rs.getInt("down"),
+                        rs.getInt("id_categorie")
+                        
                         
                         
                 );
@@ -58,12 +59,17 @@ public class DAOArticle extends DAO<Article>{
     public Article create(Article obj) {
          
        Article rtObj = null;
-        String sql = "INSERT INTO " + table + " (title, body, date)" + " VALUES (?, ?, ?)";
+        String sql = "INSERT INTO " + table + " (title, body,img, date,up,down,id_categorie)" 
+                + " VALUES (?, ?, ?,?,?,?,?)";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, obj.getTitle());
             pstmt.setString(2, obj.getBody());
-            pstmt.setString(3, obj.getDate());
+             pstmt.setString(3, null);
+            pstmt.setString(4, obj.getDate());
+             pstmt.setInt(5, 0);
+              pstmt.setInt(6, 0);
+               pstmt.setInt(7, 0);
             pstmt.executeUpdate();
             ResultSet generatedKeys = pstmt.getGeneratedKeys();
             if (generatedKeys.first()) {

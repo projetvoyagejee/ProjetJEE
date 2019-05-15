@@ -28,7 +28,7 @@
      <!-- mapping creation d'un post -->
     <servlet>
         <servlet-name>creationPost</servlet-name>
-        <servlet-class>servlets.creationPost</servlet-class>
+        <servlet-class>servlets.CreationPost</servlet-class>
     </servlet>
         
     <servlet-mapping>

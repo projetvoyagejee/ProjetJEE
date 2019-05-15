@@ -12,9 +12,10 @@
         <link type="text/css" rel="stylesheet" href="inc/form.css" />
     </head>
     <body>
-        <form method="get" action="creationPost">
+        <%--action faut que tu regarde le web.xml et faire tous le mapping avec les servlets,etc--%>
+        <form method="post" action="creationPost">
             <fieldset>
-                <legend>Creation d'un poste</legend>
+               
                 <p>Vous pouvez vous creer un article via ce formulaire.</p>
                 <label for="title">Titre de l'article <span
                         class="requis">*</span></label>
@@ -23,9 +24,17 @@
                 
                 <br /><label for="body">Corps de votre article <span
                         class="requis">*</span></label>
-                <input type="text" id="body" name="body"
-                       value="<c:out value="${article.body}" />" />
-              
+                <textarea type="text" id="body" name="body"
+                       value="<c:out value="${article.body}" />" cols="150" rows="5"></textarea>
+                       
+                <br /><label for="date">date de creation de l'article <span
+                        class="requis">*</span></label>
+                        
+                <input type="date" id="date" name="date"
+                       value="<c:out value="${article.date}" />" />
+                
+                 <input type="submit" value="Creation" class="noLabel" />
+                 
             </fieldset>
         </form>
                <c:import url="/WEB-INF/template/footer.jsp"/>
