@@ -121,4 +121,39 @@ public class DAOArticle extends DAO<Article>{
     }
     
 
+    // SELECT nom_client , nom_ville
+// FROM CLIENT C,T_REF_VILLE V
+// WHERE C.id_ville = V.id_ville
+    
+    public Article findWithCategorie(Integer id) {
+           Article retObj = null;
+        // faut faire attention aux espaces qui doivent entouré le nom de la table
+        String sql = "SELECT * FROM " + table +"A ,Categorie C"
+                + " WHERE id_Articles=? and A.id_categorie = C.id_categorie ";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            // permet de trouver dans la base de données tous les lignes ayant l'id
+            pstmt.setInt(1, id);
+            // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
+            ResultSet rs = pstmt.executeQuery();
+               
+            if (rs.first()) {
+                retObj = new Article(id,
+                        rs.getString("title"),
+                        rs.getString("body"),
+                        rs.getString("img"),
+                       rs.getString("date"),
+                        rs.getInt("up"),
+                        rs.getInt("down"),
+                        rs.getInt("id_categorie")
+                        
+                        
+                        
+                );
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retObj;
+    }
 }
