@@ -9,6 +9,7 @@
     <a href="accueil" id="accueil">Accueil</a>
     <a href="connection" id="connection">Connexion</a>
     <a href="inscription" id="inscription">Inscription</a>
+         
     <nav id="menuHeader">
         <div id="divMenu">
             <a href="galerie" id="galerie">Galerie photos</a>

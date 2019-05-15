@@ -11,6 +11,7 @@ import beans.Article;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -117,13 +118,33 @@ public class DAOArticle extends DAO<Article>{
 
     @Override
     public List<Article> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Article> retObj = new ArrayList<>();
+        // faut faire attention aux espaces qui doivent entouré le nom de la table
+        String sql = "SELECT * FROM " + table;
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+
+            // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                retObj.add(new Article(rs.getInt("id_Articles"),
+                        rs.getString("title"),
+                        rs.getString("body"),
+                        rs.getString("img"),
+                        rs.getString("date"),
+                        rs.getInt("up"),
+                        rs.getInt("down")
+                ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retObj;
+
     }
     
 
-    // SELECT nom_client , nom_ville
-// FROM CLIENT C,T_REF_VILLE V
-// WHERE C.id_ville = V.id_ville
-    
+
 
 }

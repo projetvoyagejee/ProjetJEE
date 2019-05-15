@@ -35,7 +35,16 @@
         <servlet-name>creationPost</servlet-name>
         <url-pattern>/creationPost</url-pattern>
     </servlet-mapping>
+          <!-- mapping liste des post -->
+    <servlet>
+        <servlet-name>listPost</servlet-name>
+        <servlet-class>servlets.ListePost</servlet-class>
+    </servlet>
         
+    <servlet-mapping>
+        <servlet-name>listPost</servlet-name>
+        <url-pattern>/listPost</url-pattern>
+    </servlet-mapping>
     <!-- Configuration du temps de session avant déconnexion -->
     <session-config>
         <session-timeout>

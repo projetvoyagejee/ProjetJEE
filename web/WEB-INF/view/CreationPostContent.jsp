@@ -12,6 +12,7 @@
         <link type="text/css" rel="stylesheet" href="inc/form.css" />
     </head>
     <body>
+        <div>
         <%--action faut que tu regarde le web.xml et faire tous le mapping avec les servlets,etc--%>
         <form method="post" action="creationPost">
             <fieldset>
@@ -35,6 +36,7 @@
                  
             </fieldset>
         </form>
+                       </div>
                <c:import url="/WEB-INF/template/footer.jsp"/>
     </body>
 </html>
