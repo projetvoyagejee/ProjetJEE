@@ -6,7 +6,7 @@
 
 <jsp:include page="../template/templateGeneral.jsp">
     <jsp:param name="title" value="PageAccueil" />
-    <jsp:param name="content" value="accueilContent" />
+    <jsp:param name="content" value="listeArticleContent" />
     <jsp:param name="cssFiles" value="accueil" />
 </jsp:include>
 
