@@ -6,8 +6,8 @@
 
 package forms;
 
-import DAO.DAOArticle;
-import beans.Article;
+import DAO.DAOUser;
+import beans.User;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,9 +15,10 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author Julien Modena
  */
-public class ListPostForm {
-     DAOArticle daoarticle = new DAOArticle();
+public class ListUserForm {
+       DAOUser daouser = new DAOUser();
 
+    
     
     /**
      * Méthode de validation du poste est de creation de celui-ci
@@ -25,10 +26,10 @@ public class ListPostForm {
      * @param request La reuête utilisateur
      * @return Un bean user hydraté par les données utilisateur.
      */
-    public List<Article> retourList(HttpServletRequest request) {
-         List<Article> post = daoarticle.findAll();
+    public List<User> retourListInscrit(HttpServletRequest request) {
+         List<User> ins = daouser.findAll();
        
-        return post;
+        return ins;
         
     }
 
