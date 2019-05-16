@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  * @author Julien Modena
  */
 public class Deconnection extends HttpServlet {
-private static final String URL_REDIRECTION = "/index.jsp";
+private static final String URL_REDIRECTION = "/accueil.jsp";
 /**
 * Handles the HTTP <code>GET</code> method.
 *
