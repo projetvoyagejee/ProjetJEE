@@ -64,7 +64,7 @@ public class Connection extends HttpServlet {
         
         System.out.println(user);
         
-        if(user.isAdmin()!=0 && form.getErrors().isEmpty())
+        if(user.getAdmin()!=0 && form.getErrors().isEmpty())
         {
             this.getServletContext()
                     .getRequestDispatcher(ACCUEIL)

@@ -33,7 +33,7 @@ public class User {
         this.admin = admin;
     }
 
-    public int isAdmin() {
+    public int getAdmin() {
         return admin;
     }
 

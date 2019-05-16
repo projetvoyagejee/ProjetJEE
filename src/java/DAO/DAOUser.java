@@ -36,6 +36,9 @@ public class DAOUser extends DAO<User> {
   
   private final String table = "utilisateur";
  
+  
+  
+  
   @Override
     public User find(Integer id) {
          User retObj = null;
@@ -90,9 +93,34 @@ public class DAOUser extends DAO<User> {
         return rtObj;
     }
 
-    @Override
-    public void delete(User obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   
+    public void supprimer(User obj) {
+            User rtObj = null;
+        String sql = "UPDATE " + table + " SET "
+                + "email = ?,"
+                + "password = ?,"
+                + "username = ?"
+                +"etat = ?"
+                +"admin=?"
+                + " WHERE id_utilisateur = ?";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setString(1, obj.getEmail());
+            pstmt.setString(2, encryptThisString(obj.getPassword()));
+            pstmt.setString(3, obj.getName());
+            pstmt.setInt(4, obj.getEtat());
+           
+            pstmt.setInt(5,obj.getAdmin());
+             pstmt.setInt(6, obj.getId_User());
+            pstmt.executeUpdate();
+            //réhydrate l'objet a partir de ces nouvelles données
+            rtObj = find(obj.getId_User());
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     //   return rtObj;
+    
     }
 
     @Override
@@ -112,7 +140,7 @@ public class DAOUser extends DAO<User> {
             pstmt.setString(3, obj.getName());
             pstmt.setInt(4, obj.getEtat());
            
-            pstmt.setInt(5,obj.isAdmin());
+            pstmt.setInt(5,obj.getAdmin());
              pstmt.setInt(6, obj.getId_User());
             pstmt.executeUpdate();
             //réhydrate l'objet a partir de ces nouvelles données
@@ -258,6 +286,11 @@ public class DAOUser extends DAO<User> {
         catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void delete(User obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
  
 }

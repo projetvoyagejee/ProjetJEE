@@ -17,7 +17,7 @@
              <a href="listPost">Liste des Posts</a>
              <a href="listeBestPost">Top 3</a>
              <a href="listecom">Liste commentaire signalés</a>
-             <a href="listeinscrit">Liste des inscrits</a>
+             <a href="listUser">Liste des inscrits</a>
         </div>
     </nav>
     </c:when>

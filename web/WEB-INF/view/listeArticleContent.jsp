@@ -31,7 +31,7 @@
               </table>
         
         
-               <c:import url="/WEB-INF/template/footer.jsp"/>
+              
     </body>
 </html>
 

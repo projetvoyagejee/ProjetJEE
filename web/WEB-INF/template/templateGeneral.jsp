@@ -2,6 +2,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><c:out value="${param.title}"/></title>
+        <link rel="stylesheet" href="inc/css/utilisateur.css">
         <link rel="stylesheet" href="inc/css/templateCSS.css">
         <link rel="stylesheet" href="inc/css/bootstrap.min.css">
     </head>
