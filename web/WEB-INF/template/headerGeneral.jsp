@@ -32,6 +32,7 @@
         <div id="header">
             <h1 id="nomSite">Oh My Blog!</h1>
             <a href="accueil" id="accueil">Accueil</a>
+            <a href="desinscrire" id="desinscrire">Se désinscrire</a>
             <a href="deconnection" id="deconnection">Deconnection</a>
             <nav id="menuHeader"> 
                 <div id="divMenu">
