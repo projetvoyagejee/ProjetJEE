@@ -25,11 +25,11 @@ public class Connection extends HttpServlet {
     private static final String ATT_SESSION_USER = "sessionUtilisateur";
     private static final String VUE = "/WEB-INF/view/connection.jsp";
     private static final String ADMIN = "/WEB-INF/view/admin.jsp";
-    private static final String ACCUEIL = "/PageAccueil.jsp";
+    private static final String ACCUEIL = "/accueil.jsp";
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         /* Affichage de la page de connexion */
-        this.getServletContext().getRequestDispatcher(VUE).forward(request,
+        this.getServletContext().getRequestDispatcher("/WEB-INF/view/connection.jsp").forward(request,
                 response);
     }
 
