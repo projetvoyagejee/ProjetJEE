@@ -94,24 +94,24 @@ public class DAOUser extends DAO<User> {
     }
 
    
-    public void supprimer(User obj) {
+    public User desinscrire(User obj) {
             User rtObj = null;
         String sql = "UPDATE " + table + " SET "
-                + "email = ?,"
+                + "id_utilisateur = ?,"
                 + "password = ?,"
                 + "username = ?"
                 +"etat = ?"
                 +"admin=?"
-                + " WHERE id_utilisateur = ?";
+                + " WHERE email = ?";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, obj.getEmail());
-            pstmt.setString(2, encryptThisString(obj.getPassword()));
+            pstmt.setString(6, obj.getEmail());
+            pstmt.setString(2, obj.getPassword());
             pstmt.setString(3, obj.getName());
-            pstmt.setInt(4, obj.getEtat());
+            pstmt.setInt(4, desinscrire);
            
             pstmt.setInt(5,obj.getAdmin());
-             pstmt.setInt(6, obj.getId_User());
+             pstmt.setInt(1, obj.getId_User());
             pstmt.executeUpdate();
             //réhydrate l'objet a partir de ces nouvelles données
             rtObj = find(obj.getId_User());
@@ -119,7 +119,7 @@ public class DAOUser extends DAO<User> {
         } catch (SQLException ex) {
             Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
         }
-     //   return rtObj;
+       return rtObj;
     
     }
 

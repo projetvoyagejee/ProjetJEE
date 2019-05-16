@@ -13,7 +13,18 @@
         <servlet-name>connection</servlet-name>
         <url-pattern>/connection</url-pattern>
     </servlet-mapping>
-        
+    
+        <!-- mapping desinscrire -->
+    <servlet>
+        <servlet-name>desinscrire</servlet-name>
+        <servlet-class>servlets.Desinscrire</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>desinscrire</servlet-name>
+        <url-pattern>/desinscrire</url-pattern>
+    </servlet-mapping>
+    
     <!-- mapping déconnexion -->
     <servlet>
         <servlet-name>deconnection</servlet-name>
