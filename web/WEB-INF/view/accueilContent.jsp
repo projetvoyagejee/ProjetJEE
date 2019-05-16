@@ -4,4 +4,27 @@
     Author     : stagldnr
 --%>
 
-<h1>Hello World!</h1>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<html>
+  
+    <body>
+        
+        <%--action faut que tu regarde le web.xml et faire tous le mapping avec les servlets,etc--%>
+        
+         
+            <%-- List<Article> list = (List<Article>)request.getAttribute("listPost");--%>
+            <table>
+                <c:forEach items="${requestScope.Articles}" var="Article">
+                    <div >    
+                        
+                  <tr>
+                    <td><c:out value="${pageScope.Article.title}" /></td>
+                    <td><c:out value="${pageScope.Article.body.substr(0, 100)}" /></td>
+                  </tr>
+                    </div>
+                </c:forEach>
+              </table>
+        
+  
+    </body>
+</html>

@@ -21,8 +21,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Julien Modena
  */
 public class ListePost  extends HttpServlet{
-    private static final String ATT_POST = "listPost";
-    public static final String VIEW = "/WEB-INF/view/ListPost.jsp";
+    
+    private static final String ATT_POST = "Articles";
+    public static final String VIEW = "/WEB-INF/view/accueil.jsp";
       @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
          /* Préparation de l'objet formulaire */
@@ -30,10 +31,7 @@ public class ListePost  extends HttpServlet{
         /* Traitement de la requête et récupération du bean en résultant */
         List<Article> art = listform.retourList(req);
        
-        for(Article post : art)
-        {
-            req.setAttribute(ATT_POST, post);
-        }
+        req.setAttribute(ATT_POST, art);
         /* Stockage du formulaire et du bean dans l'objet request */
        
         

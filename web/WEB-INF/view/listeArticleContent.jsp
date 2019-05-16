@@ -14,20 +14,21 @@
         <link type="text/css" rel="stylesheet" href="inc/form.css" />
     </head>
     <body>
-        <table action="listPost">
+        
         <%--action faut que tu regarde le web.xml et faire tous le mapping avec les servlets,etc--%>
         
          
-            <% List<Article> list = (List<Article>)request.getAttribute("listPost");%>
-            <%for(Article a : list)
-            {
-                out.print("<p>"+a.getTitle()+"</p>");
-                out.println("<br>");
-                out.print("<p>"+a.getBody()+"</p>");
-                
-            }%>
+            <%-- List<Article> list = (List<Article>)request.getAttribute("listPost");--%>
+            <table>
+                <c:forEach items="${requestScope.Articles}" var="Article">
+                  <tr>
+                    <td><c:out value="${pageScope.Article.title}" /></td>
+                    <td><c:out value="${pageScope.Article.body}" /></td>
+                  </tr>
+                </c:forEach>
+              </table>
         
-        </table>
+        
                <c:import url="/WEB-INF/template/footer.jsp"/>
     </body>
 </html>

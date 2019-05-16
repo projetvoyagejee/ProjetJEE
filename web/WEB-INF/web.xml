@@ -37,13 +37,13 @@
     </servlet-mapping>
           <!-- mapping liste des post -->
     <servlet>
-        <servlet-name>listPost</servlet-name>
-        <servlet-class>servlets.ListePost</servlet-class>
+        <servlet-name>accueil</servlet-name>
+        <servlet-class>servlets.Accueil</servlet-class>
     </servlet>
         
     <servlet-mapping>
-        <servlet-name>listPost</servlet-name>
-        <url-pattern>/listPost</url-pattern>
+        <servlet-name>accueil</servlet-name>
+        <url-pattern>/accueil</url-pattern>
     </servlet-mapping>
     <!-- Configuration du temps de session avant déconnexion -->
     <session-config>
@@ -71,12 +71,12 @@
         <url-pattern>/inscription</url-pattern>
     </servlet-mapping>
     
-    <servlet>
+<!--    <servlet>
         <servlet-name>accueil</servlet-name>
         <servlet-class>servlets.Accueil</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>accueil</servlet-name>
         <url-pattern>/accueil</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
 </web-app>
