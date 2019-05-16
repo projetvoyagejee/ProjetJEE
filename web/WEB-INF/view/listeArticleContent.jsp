@@ -7,6 +7,7 @@
 <%@page import="java.util.List"%>
 <%@page import="beans.Article"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -21,10 +22,11 @@
             <%-- List<Article> list = (List<Article>)request.getAttribute("listPost");--%>
             <table>
                 <c:forEach items="${requestScope.Articles}" var="Article">
-                  <tr>
-                    <td><c:out value="${pageScope.Article.title}" /></td>
-                    <td><c:out value="${pageScope.Article.body}" /></td>
-                  </tr>
+                  
+                    <h2> <c:out value="${pageScope.Article.title}" /></h2>
+                   
+                    <p> <c:out value=" ${fn:substring(pageScope.Article.body, 0, 500)}" /></p>
+                    
                 </c:forEach>
               </table>
         
