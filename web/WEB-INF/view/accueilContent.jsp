@@ -4,4 +4,6 @@
     Author     : stagldnr
 --%>
 
-<h1>Hello World!</h1>
+<div id="div">
+    <h2>Derniers articles</h2>
+</div>

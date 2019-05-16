@@ -59,4 +59,31 @@
         <servlet-name>accueil</servlet-name>
         <url-pattern>/accueil</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>galerie</servlet-name>
+        <servlet-class>servlets.Galerie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>galerie</servlet-name>
+        <url-pattern>/galerie</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>destination</servlet-name>
+        <servlet-class>servlets.Destination</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>destination</servlet-name>
+        <url-pattern>/destination</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>cuisine</servlet-name>
+        <servlet-class>servlets.Cuisine</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cuisine</servlet-name>
+        <url-pattern>/cuisine</url-pattern>
+    </servlet-mapping>
 </web-app>
