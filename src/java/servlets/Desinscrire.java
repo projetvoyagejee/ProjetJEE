@@ -8,6 +8,7 @@ package servlets;
 
 import DAO.DAOUser;
 import beans.User;
+import forms.DesinscrireForm;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -24,15 +25,15 @@ public class Desinscrire extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        /* Préparation de l'objet formulaire */
-      //  InscriptionForm form = new InscriptionForm();
+      DesinscrireForm form = new DesinscrireForm();
 
         /*
          * Appel au traitement et à la validation de la requête, et récupération
          * du bean en résultant
          */
-   //     User user = form.inscribeUser(req);
-        DAOUser daouse = new DAOUser();
-     //   daouse.delete(user);
+        User user = new User();
+        user = form.desinscrireUser(req);
+       
     }
     
     
