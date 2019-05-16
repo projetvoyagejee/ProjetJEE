@@ -1,6 +1,5 @@
 package servlets;
 
-import DAO.DAOUser;
 import beans.User;
 import forms.InscriptionForm;
 import java.io.IOException;

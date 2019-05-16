@@ -134,9 +134,6 @@ body{
 }
 
 #content{
-    padding-left: 2%;
-    margin-top: 11.6%;
-    margin-left: 16%;
-    width: 68%;
-    background-color: rgba(255, 255, 255, 0.6);
+    margin-top: 200px;
+    margin-left: 50px;
 }

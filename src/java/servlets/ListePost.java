@@ -15,13 +15,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 /**
  *
- * @author Lorenzo Nava-Nava
+ * @author Julien Modena
  */
-public class Accueil extends HttpServlet{
+public class ListePost  extends HttpServlet{
     
-      private static final String ATT_POST = "Articles";
+    private static final String ATT_POST = "Articles";
     public static final String VIEW = "/WEB-INF/view/accueil.jsp";
       @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,4 +40,5 @@ public class Accueil extends HttpServlet{
                 .getRequestDispatcher(VIEW)
                 .forward(req, resp);
     }
+
 }

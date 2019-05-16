@@ -7,6 +7,7 @@
 package servlets;
 
 import beans.Article;
+import forms.ListLikeForm;
 import forms.ListPostForm;
 import java.io.IOException;
 import java.util.List;
@@ -17,21 +18,26 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Lorenzo Nava-Nava
+ * @author Julien Modena
  */
-public class Accueil extends HttpServlet{
-    
-      private static final String ATT_POST = "Articles";
-    public static final String VIEW = "/WEB-INF/view/accueil.jsp";
-      @Override
+public class ListLike  extends HttpServlet{
+    private static final String ATT_POST = "listPost";
+    public static final String VIEW = "/WEB-INF/view/LikePost.jsp";   
+
+
+
+@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
          /* Préparation de l'objet formulaire */
-       ListPostForm listform = new ListPostForm();
+       ListLikeForm listlike = new ListLikeForm();
         /* Traitement de la requête et récupération du bean en résultant */
-        List<Article> art = listform.retourList(req);
-       
-        req.setAttribute(ATT_POST, art);
-        /* Stockage du formulaire et du bean dans l'objet request */
+//        List<Article> art ;
+//       
+//        for(Article post : art)
+//        {
+//            req.setAttribute(ATT_POST, post);
+//        }
+//        /* Stockage du formulaire et du bean dans l'objet request */
        
         
         /* Transmission de la paire d'objets request/response à notre JSP */
@@ -39,4 +45,9 @@ public class Accueil extends HttpServlet{
                 .getRequestDispatcher(VIEW)
                 .forward(req, resp);
     }
+
+ 
+
+   
+    
 }
