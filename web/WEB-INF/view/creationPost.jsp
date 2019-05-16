@@ -4,7 +4,7 @@
     Author     : stagldnr
 --%>
 
-<jsp:include page="/WEB-INF/template/templateAdmin.jsp">
+<jsp:include page="/WEB-INF/template/templateGeneral.jsp">
     <jsp:param name="title" value="creationPost" />
      <jsp:param name="content" value="CreationPostContent" />
    

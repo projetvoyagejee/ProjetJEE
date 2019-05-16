@@ -45,6 +45,15 @@
         <servlet-name>accueil</servlet-name>
         <url-pattern>/accueil</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>listPost</servlet-name>
+        <servlet-class>servlets.Accueil</servlet-class>
+    </servlet>
+        
+    <servlet-mapping>
+        <servlet-name>listPost</servlet-name>
+        <url-pattern>/listPost</url-pattern>
+    </servlet-mapping>
     <!-- Configuration du temps de session avant déconnexion -->
     <session-config>
         <session-timeout>
