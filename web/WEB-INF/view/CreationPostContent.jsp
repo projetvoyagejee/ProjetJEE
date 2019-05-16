@@ -24,7 +24,7 @@
                 
                 <br /><label for="body">Corps de votre article <span
                         class="requis">*</span></label>
-                <textarea type="text" id="body" name="body" cols="150" rows="5"></textarea>
+                <textarea type="text" id="body" name="body" cols="95" rows="5"></textarea>
                        
                 <br /><label for="date">date de creation de l'article <span
                         class="requis">*</span></label>

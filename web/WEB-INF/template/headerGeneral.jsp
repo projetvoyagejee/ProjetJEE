@@ -24,7 +24,7 @@
                     <a href="listPost" id="listPost">Liste des Posts</a>
                     <a href="listeBestPost" id="listeBestPost">Top 3</a>
                     <a href="listecom" id="listecom">Signalements</a>
-                    <a href="listeinscrit" id="listeinscrit">Liste des inscrits</a>
+                    <a href="listUser" id="listeinscrit">Liste des inscrits</a>
                 </div>
             </nav>
     </c:when>
