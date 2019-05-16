@@ -9,8 +9,8 @@
               <div id="header">
     <h1 id="nomSite">Oh My Blog!</h1>
     <a href="accueil" id="accueil">Accueil</a>
-    <a href="connection" id="connection">Connexion</a>
-    <a href="inscription" id="inscription">Inscription</a>
+   
+    <a href="deconnection" id="deconnection">Deconnection</a>
     <nav id="menuHeader">
         <div id="divMenu">
              <a href="creationPost">Creer un Post</a>
@@ -25,7 +25,7 @@
          <div id="header">
     <h1 id="nomSite">Oh My Blog!</h1>
     <a href="accueil" id="accueil">Accueil</a>
-    <a href="connection" id="connection">Connexion</a>
+     <a href="deconnection" id="deconnection">Deconnection</a>
     <nav id="menuHeader"> 
         <div id="divMenu">
             <a href="galerie" id="galerie">Galerie photos</a>
