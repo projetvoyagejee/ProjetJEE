@@ -14,7 +14,7 @@
     </head>
     <body>
         <header>
-            <jsp:include page="/WEB-INF/template/adminheader.jsp" />
+            <jsp:include page="/WEB-INF/template/headerGeneral.jsp" />
         </header>
 
         <section id="content">

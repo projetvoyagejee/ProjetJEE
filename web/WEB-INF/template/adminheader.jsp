@@ -11,6 +11,7 @@
     <a href="accueil" id="accueil">Accueil</a>
     <a href="connection" id="connection">Connexion</a>
     <a href="inscription" id="inscription">Inscription</a>
+    <c:if test="${!empty sessionScope.sessionUtilisateur && sessionScope.sessionUtilisateur.id==1}">
          
     <nav id="menuHeader">
         <div id="divMenu">
@@ -21,4 +22,5 @@
              <a href="listeinscrit">Liste des inscrits</a>
         </div>
     </nav>
+</c:if>
 </div>
