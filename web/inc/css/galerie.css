@@ -1,0 +1,79 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16 mai 2019, 14:32:28
+    Author     : Christophe
+*/
+ul, li {
+    list-style:none;
+    margin: 0;
+    position: absolute;
+}
+
+ul#main_photo {
+    width:600px;
+    height:450px;
+    margin-top: 30px;   
+    position:relative;
+}
+
+ul#main_photo img {
+    opacity:0;
+    width:600px;
+    margin:auto;
+    -moz-transition:opacity 1s ease-in-out;
+    -webkit-transition:opacity 1s ease-in-out;
+    -o-transition:opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+ul#main_photo img:target {
+    opacity:1;
+}
+
+div#thumb{
+    position:relative;
+    z-index: 1000;
+    border-bottom:1px solid #ccc;
+}
+
+div#thumb_center{
+    width:20px;
+    margin:auto;
+    text-align:center;
+}
+
+div#cadre {
+    padding:5px;
+    width: 14%;
+    text-align:center;
+    margin:5px;
+    float:left;
+}
+
+div#cadre img {
+    width: 100%;
+    opacity:0.7;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+div#cadre img:hover {
+    opacity:1;
+    -moz-transform:scale(1.2);
+    -o-transform:scale(1.2);
+    -webkit-transform:scale(1.2);
+    transform:scale(1.2);
+    padding:0px;
+    z-index:3;
+}
+
+.thumb {
+    width:50px;
+}
+
