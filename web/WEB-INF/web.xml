@@ -71,14 +71,6 @@
         <url-pattern>/inscription</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>connection</servlet-name>
-        <servlet-class>servlets.Connection</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>connection</servlet-name>
-        <url-pattern>/connection</url-pattern>
-    </servlet-mapping>
 
     <servlet>
         <servlet-name>galerie</servlet-name>
