@@ -1,5 +1,5 @@
 <%-- 
-    Document   : CreationPost
+    Document   : CreationCommentaire
     Created on : 14 mai 2019, 15:49:11
     Author     : stagldnr
 --%>
@@ -13,8 +13,8 @@
     </head>
     <body>
         <div>
-        <%--action faut que tu regarde le web.xml et faire tous le mapping avec les servlets,etc--%>
-        <form method="commentaire" action="creationCommentaire">
+        <%--action faut que tu regardes le web.xml et faire tous le mapping avec les servlets,etc--%>
+        <form method="post" action="creationCommentaire">
             <fieldset>
                
                 <p>Vous pouvez créer un commentaire ici.</p>
