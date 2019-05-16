@@ -6,6 +6,6 @@
 
 <jsp:include page="/WEB-INF/template/templateGeneral.jsp">
     <jsp:param name="title" value="admin" />
-     <jsp:param name="content" value="CreationPostContent" />
+    <jsp:param name="content" value="CreationPostContent" />
    
 </jsp:include>

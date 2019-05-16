@@ -29,7 +29,7 @@ public class Connection extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         /* Affichage de la page de connexion */
-        this.getServletContext().getRequestDispatcher("/WEB-INF/view/connection.jsp").forward(request,
+        this.getServletContext().getRequestDispatcher(VUE).forward(request,
                 response);
     }
 
