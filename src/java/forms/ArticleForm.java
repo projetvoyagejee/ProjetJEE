@@ -8,16 +8,16 @@ package forms;
 
 import DAO.DAOArticle;
 import beans.Article;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 /**
  *
  * @author Julien Modena
  */
-public class ListPostForm {
-     DAOArticle daoarticle = new DAOArticle();
-
+public class ArticleForm {
+         DAOArticle daoarticle = new DAOArticle();
+         private static final String ID ="id";
+        
     
     /**
      * Méthode de validation du poste est de creation de celui-ci
@@ -25,8 +25,20 @@ public class ListPostForm {
      * @param request La reuête utilisateur
      * @return Un bean user hydraté par les données utilisateur.
      */
-    public List<Article> retourList(HttpServletRequest request) {
-         List<Article> post = daoarticle.findDate();
+    public Article retourArticle(HttpServletRequest request) {
+        Article post = null;
+        /* Récupération des champs du formulaire */
+        if(request==null){
+            
+        }else{
+       int id = Integer.parseInt(request.getParameter(ID));
+        post=daoarticle.find(id);
+        }
+            
+        
+       
+      
+       
        
         return post;
         

@@ -5,7 +5,7 @@
 --%>
 
 <jsp:include page="../template/templateGeneral.jsp">
-    <jsp:param name="title" value="Destination" />
+    <jsp:param name="title" value="destination" />
     <jsp:param name="content" value="destinationContent" />
-    <jsp:param name="cssFiles" value="destination" />
+   
 </jsp:include>

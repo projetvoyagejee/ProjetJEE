@@ -139,4 +139,30 @@ public class DAOArticle extends DAO<Article> {
         return retObj;
 
     }
+        public List<Article> findDate() {
+        ArrayList<Article> retObj = new ArrayList<>();
+        // faut faire attention aux espaces qui doivent entouré le nom de la table
+        String sql = "select * from " +table +" order by date desc " ;
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+
+            // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                retObj.add(new Article(rs.getInt("id_Articles"),
+                        rs.getString("title"),
+                        rs.getString("body"),
+                        rs.getString("img"),
+                        rs.getString("date"),
+                        rs.getInt("up"),
+                        rs.getInt("down")
+                ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retObj;
+
+    }
 }

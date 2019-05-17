@@ -22,8 +22,11 @@ public class DesinscrireForm {
        String email = request.getParameter("email");
       String pwd = request.getParameter("password");
       String usename = request.getParameter("name");
+          
       String admin = request.getParameter("admin");
+       System.out.println("admin = "+request.getParameter("admin"));
       String eta = request.getParameter("etat");
+           System.out.println("etat = "+ request.getParameter("etat"));
         // Le bean à retourner
         User user = new User();
         user.setEmail(email);
