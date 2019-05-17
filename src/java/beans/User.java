@@ -2,7 +2,7 @@ package beans;
 
 /**
  *
- * @author Herbert Caffarel <herbert.caffarel@cicef.pro>
+ * @author 
  */
 public class User {
     private int id_User;

@@ -16,6 +16,7 @@ public class InscriptionForm {
     private static final String PASSWORD_FIELD = "password";
     private static final String CONFIRM_FIELD = "confirm";
     private static final String NAME_FIELD = "username";
+    
     DAOUser daouser = new DAOUser();
     private String result;
     private final Map<String, String> errors = new HashMap<>();
@@ -40,35 +41,53 @@ public class InscriptionForm {
         String password = getParamValue(request, PASSWORD_FIELD);
         String confirm = getParamValue(request, CONFIRM_FIELD);
         String name = getParamValue(request, NAME_FIELD);
+      
+      
 
         // Le bean à retourner
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
         user.setName(name);
+       
 
         try {
             validateEmail(email);
         } catch (Exception e) {
             setError(EMAIL_FIELD, e.getMessage());
+            System.out.println("valider email error");
         }
         try {
             validatePassword(password, confirm);
         } catch (Exception e) {
-            setError(PASSWORD_FIELD, e.getMessage());
+             System.out.println("pwd error");
+           setError(PASSWORD_FIELD, e.getMessage());
         }
         try {
             validateName(name);
         } catch (Exception e) {
+            System.out.println("name error");
             setError(NAME_FIELD, e.getMessage());
         }
         try {
             verifieEmail(email);
             
         }catch(Exception e){
+                        System.out.println("verifier email error");
+
             setError(EMAIL_FIELD, e.getMessage());
         }
+        try{
+            
+            verifierEtat(email);
+            
+        }catch(Exception e){
+                        System.out.println("etat email error");
 
+            setError(EMAIL_FIELD,e.getMessage());
+        }
+        System.out.println("user");
+        
         /* Initialisation du résultat global de la validation. */
         if (errors.isEmpty()) {
             
@@ -93,6 +112,23 @@ public class InscriptionForm {
             throw new Exception("Merci de saisir une adresse mail.");
         }
     }
+    
+private void verifierEtat( String mail) throws Exception{
+    User test= daouser.retrouverUser(mail);
+    if(test!=null){
+          switch (test.getEtat()) {
+            case 1:
+                throw new Exception("Vous n'êtes pas autorisés a utiliser cette adresse mail");
+            case 2:
+                throw new Exception("Vous n'êtes pas digne d'avoir un compte sur notre blog");
+            default:
+                break;
+        }
+    }
+   
+      
+}    
+
 private void verifieEmail(String mail) throws Exception{
     if(daouser.findEmail(mail)==true){
          throw new Exception("Un compte existe deja pour cette adresse mail");
