@@ -5,7 +5,7 @@ and open the template in the editor.
 */
 /* 
     Created on : 16 mai 2019, 14:32:28
-    Author     : Christophe
+    Author     : Lorenzo
 */
 ul, li {
     list-style:none;
@@ -14,10 +14,11 @@ ul, li {
 }
 
 ul#main_photo {
-    width:600px;
-    height:450px;
-    margin-top: 30px;   
-    position:relative;
+    width: 600px;
+    height: 450px;
+    padding: 0 5% 10% 5%;
+    margin-top: 30px;
+    position: relative;
 }
 
 ul#main_photo img {
