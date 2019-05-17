@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author Julien Modena
  */
-public class ListPostForm {
+public class DestinationForm {
      DAOArticle daoarticle = new DAOArticle();
 
     
@@ -26,7 +26,7 @@ public class ListPostForm {
      * @return Un bean user hydraté par les données utilisateur.
      */
     public List<Article> retourList(HttpServletRequest request) {
-         List<Article> post = daoarticle.findDate();
+         List<Article> post = daoarticle.findAll();
        
         return post;
         

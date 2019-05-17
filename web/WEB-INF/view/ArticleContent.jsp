@@ -5,13 +5,14 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<article items="${requestScope.Article.id_Article}" var="Article">
+<article>
     
     
-    <h2><c:out value="${pageScope.Article.title}" /></h2>
-    <<c:out value=" ${pageScope.Article.body}"/>></div>
-
-
+    <h2><c:out value="${requestScope.Article.title}" /></h2>
+    <<c:out value=" ${requestScope.Article.body}"/>></div>
+    <br>
+        <a href="like">J'aime</a>
+       <a href="likenot">J'aime pas</a>
 
 
 

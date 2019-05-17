@@ -21,9 +21,14 @@
                   
                         <td class="tdu"><c:out value="${pageScope.utilisateur.admin}" /></td>
 <!--                        rajouter un cchoose par rapport a l'etat de l'user-->
-                        <td class="tdu"> <a href="desinscrire">Bloquer l'utilisateur</a></td>
+
+                        <td class="tdu"> <a  href="<c:url
+                    value="/desinscrire?id=${pageScope.utilisateur.id_User}"/>"> Bloquer l'utilisateur</a></td>
                         
-                        <td class="tdu"> <a href="supprimer"style="color:#f00">Supprimer l'utilisateur</a></td>
+                        
+                          <td class="tdu"> <a style="color:#f00"  href="<c:url
+                    value="/supprimer?id=${pageScope.utilisateur.id_User}"/>">Supprimer l'utilisateur</a></td>
+                       
                     </tr>
                       
                    

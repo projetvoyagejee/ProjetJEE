@@ -6,10 +6,9 @@
 
 package servlets;
 
-import beans.Article;
-import forms.ListPostForm;
+import DAO.DAOArticle;
+import forms.ArticleForm;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,26 +16,31 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Lorenzo Nava-Nava
+ * @author Julien Modena
  */
-public class Destination extends HttpServlet{
+public class Article  extends HttpServlet{
+      
+     private static final String ATT_POST = "Article";
+    public static final String VIEW = "/WEB-INF/view/Article.jsp";
+    DAOArticle daoarticle = new DAOArticle();
     
-    private static final String ATT_POST = "Articles";
-    public static final String VIEW = "/WEB-INF/view/destination.jsp";
-      @Override
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-         /* Préparation de l'objet formulaire */
-       ListPostForm listform = new ListPostForm();
+        /* Préparation de l'objet formulaire */
+      ArticleForm artform = new ArticleForm();
         /* Traitement de la requête et récupération du bean en résultant */
-        List<Article> art = listform.retourList(req);
-       
-        req.setAttribute(ATT_POST, art);
+          /* Récupération de la session depuis la requête */
+        
+         beans.Article post = artform.retourArticle(req);
+        System.out.println("l'article du retour article"+post);
         /* Stockage du formulaire et du bean dans l'objet request */
        
+        req.setAttribute(ATT_POST, post);
         
-        /* Transmission de la paire d'objets request/response à notre JSP */
         this.getServletContext()
                 .getRequestDispatcher(VIEW)
                 .forward(req, resp);
     }
+    
+
 }

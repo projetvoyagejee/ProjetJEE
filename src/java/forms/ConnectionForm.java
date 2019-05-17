@@ -66,6 +66,14 @@ public class ConnectionForm {
         }catch (Exception e){
             setError(EMAIL,e.getMessage());
         }
+        try{
+            
+            verifierEtat(email);
+            
+        }catch(Exception e){
+            
+            setError(EMAIL,e.getMessage());
+        }
         
         user.setPassword(pwd);
       
@@ -91,14 +99,26 @@ public class ConnectionForm {
             throw new Exception("Merci de saisir une adresse mailvalide. ");
         }
     }
+    
+// fonction pour verifier l'etat de l'utilisateur et renvoie différentes erreurs
+    private void verifierEtat( String mail) throws Exception{
+   User test= daouse.retrouverUser(mail);
+   
+   if(test.getEtat()==1)
+   {
+       throw new Exception("Vous n'êtes pas autorisés a utiliser cette adresse mail");
+   }
+   else if(test.getEtat()==2){
+       throw new Exception("Vous n'êtes pas digne d'avoir un compte sur notre blog");
+   }
+}   
 
 // fonction qui recupere l'email et le mot de passe si ils sont inscrit dans la base de données autorise l'accès 
     
 private void verifieLog(String mail, String pwd) throws Exception{
   if(mail.length()!=0 && pwd.length()!=0)
   {
-    if(daouse.findLog(mail,pwd)==false){
-         throw new Exception("Vos identifiant sont incorrect");
+    if(daouse.findLog(mail,pwd)==false){         throw new Exception("Vos identifiant sont incorrect");
     }
   }
   else{

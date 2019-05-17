@@ -94,34 +94,27 @@ public class DAOUser extends DAO<User> {
     }
 
    
-    public User desinscrire(User obj) {
-            User rtObj = null;
+  public User updateEtat(int etat, User obj){
+     User rtObj = null;
+        
         String sql = "UPDATE " + table + " SET "
-                + "id_utilisateur = ?,"
-                + "password = ?,"
-                + "username = ?"
-                +"etat = ?"
-                +"admin=?"
-                + " WHERE email = ?";
+               +"etat = ?"
+                + " WHERE id_utilisateur = ?";
+        
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(6, obj.getEmail());
-            pstmt.setString(2, obj.getPassword());
-            pstmt.setString(3, obj.getName());
-            pstmt.setInt(4, desinscrire);
-           
-            pstmt.setInt(5,obj.getAdmin());
-             pstmt.setInt(1, obj.getId_User());
+            pstmt.setInt(1, etat);
+            pstmt.setInt(2, obj.getId_User());
             pstmt.executeUpdate();
             //réhydrate l'objet a partir de ces nouvelles données
             rtObj = find(obj.getId_User());
+            
 
         } catch (SQLException ex) {
             Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
         }
-       return rtObj;
-    
-    }
+        return rtObj;
+  }
 
     @Override
     public User update(User obj) {
@@ -221,11 +214,12 @@ public class DAOUser extends DAO<User> {
                  pstmt.setString(1, mail);
              // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
                  ResultSet rs = pstmt.executeQuery();
-                 rs.first();
-                 // recupere le deuxieme parametre de rs est si il est egal à mail va retourner true 
+                 if(rs.first()){
+                      // recupere le deuxieme parametre de rs est si il est egal à mail va retourner true 
                  // donc l'utilisateur existe deja 
-                existe = (mail.equals(rs.getString(2)));
-             
+                existe = (mail.equalsIgnoreCase(rs.getString("email")));
+                 }
+              
         } catch (SQLException ex) {
             Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
         }

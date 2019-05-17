@@ -15,25 +15,24 @@ import javax.servlet.http.HttpServletRequest;
  * @author Julien Modena
  */
 public class DesinscrireForm {
+         // quand la variable est egal à 1 l'utilisateur c'est desinscrit et c'est commentaire son toujours actif
+  // La base de donnée : les commentaires ont un clé etrangère pour avoir le lien avec les utilisateurs
+  private final int desinscrire = 1;
+     private static final String ID ="id";
      DAOUser daouser = new DAOUser();
      
      
+    
+     
        public User desinscrireUser(HttpServletRequest request) {
-       String email = request.getParameter("email");
-      String pwd = request.getParameter("password");
-      String usename = request.getParameter("name");
-      String admin = request.getParameter("admin");
-      String eta = request.getParameter("etat");
-        // Le bean à retourner
-        User user = new User();
-        user.setEmail(email);
-        user.setPassword(pwd);
-        user.setName(usename);
-        user.setAdmin(Integer.parseInt(admin));
-        user.setEtat(Integer.parseInt(eta));
-       User Utilisateur = daouser.retrouverUser(email);
-       user = daouser.desinscrire(Utilisateur);
-       return user;
+       int id = Integer.parseInt(request.getParameter(ID));
+        
+       User user = daouser.find(id);
+           
+       User utilisateur = daouser.updateEtat(desinscrire,user);
+
+       
+       return utilisateur;
        }
 
 }

@@ -14,16 +14,7 @@
         <url-pattern>/connection</url-pattern>
     </servlet-mapping>
     
-        <!-- mapping desinscrire -->
-    <servlet>
-        <servlet-name>desinscrire</servlet-name>
-        <servlet-class>servlets.Desinscrire</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>desinscrire</servlet-name>
-        <url-pattern>/desinscrire</url-pattern>
-    </servlet-mapping>
+  
     
     <!-- mapping déconnexion -->
     <servlet>
@@ -56,15 +47,15 @@
         <servlet-name>accueil</servlet-name>
         <url-pattern>/accueil</url-pattern>
     </servlet-mapping>
-<!--    <servlet>
+     <servlet>
         <servlet-name>listPost</servlet-name>
         <servlet-class>servlets.Accueil</servlet-class>
     </servlet>
         
     <servlet-mapping>
         <servlet-name>listPost</servlet-name>
-        <url-pattern>/listPost</url-pattern>
-    </servlet-mapping>-->
+        <url-pattern>/listPostl</url-pattern>
+    </servlet-mapping>
      <servlet>
         <servlet-name>listUser</servlet-name>
         <servlet-class>servlets.ListeUser</servlet-class>
@@ -74,6 +65,27 @@
         <servlet-name>listUser</servlet-name>
         <url-pattern>/listUser</url-pattern>
     </servlet-mapping>
+    
+    <!-- mapping desinscrire User -->
+      <servlet>
+        <servlet-name>desinscrire</servlet-name>
+        <servlet-class>servlets.Desinscrire</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>desinscrire</servlet-name>
+        <url-pattern>/desinscrire</url-pattern>
+    </servlet-mapping> 
+    
+    
+    <!-- mapping supprimer USer -->
+      <servlet>
+        <servlet-name>supprimer</servlet-name>
+        <servlet-class>servlets.Supprimer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>supprimer</servlet-name>
+        <url-pattern>/supprimer</url-pattern>
+    </servlet-mapping> 
     <!-- Configuration du temps de session avant déconnexion -->
     <session-config>
         <session-timeout>
@@ -118,7 +130,14 @@
         <servlet-name>destination</servlet-name>
         <url-pattern>/destination</url-pattern>
     </servlet-mapping> 
-
+    <servlet>
+        <servlet-name>Article</servlet-name>
+        <servlet-class>servlets.Article</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Article</servlet-name>
+        <url-pattern>/Article</url-pattern>
+    </servlet-mapping> 
     <servlet>
         <servlet-name>cuisine</servlet-name>
         <servlet-class>servlets.Cuisine</servlet-class>
